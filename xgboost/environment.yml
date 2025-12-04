@@ -1,0 +1,25 @@
+name: sensitivity
+channels:
+  - conda-forge
+dependencies:
+  - python=3.10
+  - pip
+  # scientific stack via conda (matches your requirements.txt pins)
+  - numpy=1.26
+  - pandas=2.2.2
+  - scipy=1.14
+  - scikit-learn=1.5
+  - xgboost=1.7.1
+  - matplotlib=3.9
+  - shap=0.46
+  - jupyterlab
+  # TF stack pinned together (compatible trio)
+  - tensorflow=2.17
+  - keras=3.4
+  - tensorboard=2.17
+  # only pip-only packages go here; DO NOT repeat conda ones
+  - pip:
+      - dtai-veritas==0.2.3
+      - gurobipy==12.0.1
+      - xyplot==0.2.0
+      - z3-solver==4.13.0.0

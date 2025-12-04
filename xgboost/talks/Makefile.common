@@ -1,0 +1,72 @@
+# Makefile for papers
+
+.PHONY: clean open spell subclean attendance
+
+ifndef pdfs
+pdfs = main.pdf 
+endif
+
+ifndef CURRENT_PUBLIC_DIR
+move_handout = 0
+else
+move_handout = 1
+endif
+
+all: tmp $(pdfs)
+
+tmp:
+	mkdir -p tmp
+
+%.pdf: %.tex tmp
+	latexmk -output-directory=./tmp -pdf $< > /dev/null
+	mv ./tmp/$@ ./
+
+push:
+	make -C $(HTML_LOCATION)/
+
+# need macro.tex to exists to compile in this mode
+%.handout.pdf: PDF_NAME = $@
+%.handout.pdf: %.tex tmp
+	cp $< ./tmp/
+	cd ./tmp && $ sed -i 's/\\documentclass\[aspectratio=169\]{beamer}/\\documentclass[aspectratio=169,handout]{beamer}\n\\newcommand{\\handout}{}/' $<
+	latexmk -output-directory=./tmp/ -pdf tmp/$<
+	if [ $(move_handout) -eq 1 ]; then \
+	   cp ./tmp/$(PDF_NAME:.handout.pdf=.pdf) $(HTML_LOCATION)/$(CURRENT_PUBLIC_DIR)/; \
+           cd $(HTML_LOCATION)/$(CURRENT_PUBLIC_DIR)/; git add $(PDF_NAME:.handout.pdf=.pdf); \
+	fi
+	mv ./tmp/$(PDF_NAME:.handout.pdf=.pdf) ./$@
+	if [ $(move_handout) -eq 1 ]; then make -C $(HTML_LOCATION)/; fi
+
+%.handout.txt: TXT_NAME = $@
+%.handout.txt: %.tex tmp
+	cp $< ./tmp/
+	cd ./tmp && $ sed -i 's/\\documentclass\[aspectratio=169\]{beamer}/\\documentclass[aspectratio=169,handout]{beamer}\n\\newcommand{\\handout}{}\n\\newcommand{\\nofooter}{}/' $<
+	latexmk -output-directory=./tmp/ -pdf tmp/$<	
+	pdf2txt.py ./tmp/$(TXT_NAME:.handout.txt=.pdf) > ./$@
+	sed -i 's/ :/:/g' ./$@
+	sed -i 's/ \./\./g' ./$@
+	sed -i 's/ ,/,/g' ./$@
+	sed -i 's/ ?/?/g' ./$@
+	sed -i 's/ !/!/g' ./$@
+	sed -ri 's/,([^ ])/, \1/g' ./$@
+
+spell:
+	for f in `find . -name "*.tex"`; do aspell -t -l en_us -c $$f; done;
+
+attendance:
+	if [ $(move_handout) -eq 1 ]; then \
+	   wget $(ATTENDANCE_URL) -O $(HTML_LOCATION)/$(CURRENT_PUBLIC_DIR)/attendance.html; \
+	fi
+
+clean:
+	rm -f *.aux *.bbl *.blg *.bst *.dvi *.fdb_latexmk *.fls *.vrb
+	rm -f *.idx *.lof *.log *.nav *.out *.pdf *.snm *.synctex.gz *.toc
+	rm -f *.handout.txt
+	rm -f $(MAIN).zip
+	rm -f *.bak */*.bak *.auto *.log *~ */*~ */texput.log
+	rm -rf auto
+	rm -rf ./tmp/*
+
+subclean:
+	find ./* -name Makefile | xargs dirname | xargs -I % make -C % clean
+

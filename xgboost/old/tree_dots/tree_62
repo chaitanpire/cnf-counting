@@ -1,0 +1,341 @@
+digraph {
+    graph [ rankdir=TB ]
+
+    0 [ label="ATM_DR_TXN_AMT_7M<9.43999958" ]
+    0 -> 1 [label="no" color="#FF0000"]
+    0 -> 2 [label="yes, missing" color="#0000FF"]
+
+    1 [ label="DEBIT_CNT_3M<55" ]
+    1 -> 3 [label="yes, missing" color="#0000FF"]
+    1 -> 4 [label="no" color="#FF0000"]
+
+    3 [ label="AGE<29" ]
+    3 -> 7 [label="no" color="#FF0000"]
+    3 -> 8 [label="yes, missing" color="#0000FF"]
+
+    7 [ label="DEBIT_CNT_3M<14" ]
+    7 -> 15 [label="yes, missing" color="#0000FF"]
+    7 -> 16 [label="no" color="#FF0000"]
+
+    15 [ label="CREDIT_CNT_2M<4" ]
+    15 -> 29 [label="no" color="#FF0000"]
+    15 -> 30 [label="yes, missing" color="#0000FF"]
+
+    29 [ label="L6M_DR_CR_AMT_RATIO<0.654928982" ]
+    29 -> 57 [label="yes, missing" color="#0000FF"]
+    29 -> 58 [label="no" color="#FF0000"]
+
+    57 [ label="leaf=0.0186507013" ]
+
+    58 [ label="leaf=-0.130837008" ]
+
+    30 [ label="UPI_DR_CNT_11M<3" ]
+    30 -> 109 [label="no" color="#FF0000"]
+    30 -> 110 [label="yes, missing" color="#0000FF"]
+
+    109 [ label="leaf=0.0954085737" ]
+
+    110 [ label="leaf=-0.0251017045" ]
+
+    16 [ label="L2M_DR_CR_AMT_RATIO<0.752009988" ]
+    16 -> 53 [label="no" color="#FF0000"]
+    16 -> 54 [label="yes, missing" color="#0000FF"]
+
+    53 [ label="L3M_DR_CR_AMT_RATIO<0.706018984" ]
+    53 -> 71 [label="yes, missing" color="#0000FF"]
+    53 -> 72 [label="no" color="#FF0000"]
+
+    71 [ label="leaf=-0.408996552" ]
+
+    72 [ label="leaf=-0.130128831" ]
+
+    54 [ label="DEBIT_SUM_6M<36791" ]
+    54 -> 69 [label="yes, missing" color="#0000FF"]
+    54 -> 70 [label="no" color="#FF0000"]
+
+    69 [ label="leaf=-0.117701359" ]
+
+    70 [ label="leaf=-0.0272582769" ]
+
+    8 [ label="DEBIT_SUM_6M<0.200000003" ]
+    8 -> 25 [label="no" color="#FF0000"]
+    8 -> 26 [label="yes, missing" color="#0000FF"]
+
+    25 [ label="DEBIT_CNT_3M<3" ]
+    25 -> 41 [label="no" color="#FF0000"]
+    25 -> 42 [label="yes, missing" color="#0000FF"]
+
+    41 [ label="LM_DR_CR_AMT_RATIO<9.99999997e-07" ]
+    41 -> 93 [label="yes, missing" color="#0000FF"]
+    41 -> 94 [label="no" color="#FF0000"]
+
+    93 [ label="leaf=-0.0685014501" ]
+
+    94 [ label="leaf=0.0225332044" ]
+
+    42 [ label="L3M_DR_CR_AMT_RATIO<0.636480987" ]
+    42 -> 89 [label="yes, missing" color="#0000FF"]
+    42 -> 90 [label="no" color="#FF0000"]
+
+    89 [ label="leaf=-0.228437915" ]
+
+    90 [ label="leaf=-0.0592813455" ]
+
+    26 [ label="L7M_DR_CR_AMT_RATIO<0.178378001" ]
+    26 -> 39 [label="no" color="#FF0000"]
+    26 -> 40 [label="yes, missing" color="#0000FF"]
+
+    39 [ label="DEBIT_SUM_6M<46317.0508" ]
+    39 -> 97 [label="yes, missing" color="#0000FF"]
+    39 -> 98 [label="no" color="#FF0000"]
+
+    97 [ label="leaf=0.103749312" ]
+
+    98 [ label="leaf=-0.0269098785" ]
+
+    40 [ label="CREDIT_CNT_2M<27" ]
+    40 -> 95 [label="no" color="#FF0000"]
+    40 -> 96 [label="yes, missing" color="#0000FF"]
+
+    95 [ label="leaf=-0.00772392144" ]
+
+    96 [ label="leaf=0.104144573" ]
+
+    4 [ label="UPI_DR_CNT_11M<12" ]
+    4 -> 11 [label="yes, missing" color="#0000FF"]
+    4 -> 12 [label="no" color="#FF0000"]
+
+    11 [ label="CREDIT_SUM_5M<133891.25" ]
+    11 -> 27 [label="yes, missing" color="#0000FF"]
+    11 -> 28 [label="no" color="#FF0000"]
+
+    27 [ label="L2M_DR_CR_AMT_RATIO<1.07425797" ]
+    27 -> 37 [label="no" color="#FF0000"]
+    27 -> 38 [label="yes, missing" color="#0000FF"]
+
+    37 [ label="LM_DR_CR_AMT_RATIO<2.51582289" ]
+    37 -> 101 [label="yes, missing" color="#0000FF"]
+    37 -> 102 [label="no" color="#FF0000"]
+
+    101 [ label="leaf=-0.421305507" ]
+
+    102 [ label="leaf=0.00605191616" ]
+
+    38 [ label="CREDIT_SUM_4M<15910" ]
+    38 -> 99 [label="yes, missing" color="#0000FF"]
+    38 -> 100 [label="no" color="#FF0000"]
+
+    99 [ label="leaf=0.279977471" ]
+
+    100 [ label="leaf=-0.26164034" ]
+
+    28 [ label="CREDIT_SUM_4M<73501" ]
+    28 -> 35 [label="yes, missing" color="#0000FF"]
+    28 -> 36 [label="no" color="#FF0000"]
+
+    35 [ label="CREDIT_CNT_10M<9" ]
+    35 -> 61 [label="no" color="#FF0000"]
+    35 -> 62 [label="yes, missing" color="#0000FF"]
+
+    61 [ label="leaf=0.0862302333" ]
+
+    62 [ label="leaf=-0.504117906" ]
+
+    36 [ label="L9M_DR_CR_AMT_RATIO<0.888051987" ]
+    36 -> 105 [label="yes, missing" color="#0000FF"]
+    36 -> 106 [label="no" color="#FF0000"]
+
+    105 [ label="leaf=-0.0938876942" ]
+
+    106 [ label="leaf=0.246999159" ]
+
+    12 [ label="CREDIT_SUM_5M<102768" ]
+    12 -> 23 [label="no" color="#FF0000"]
+    12 -> 24 [label="yes, missing" color="#0000FF"]
+
+    23 [ label="L5M_DR_CR_AMT_RATIO<2.5503881" ]
+    23 -> 45 [label="no" color="#FF0000"]
+    23 -> 46 [label="yes, missing" color="#0000FF"]
+
+    45 [ label="L3M_DR_CR_AMT_RATIO<1.24980104" ]
+    45 -> 87 [label="no" color="#FF0000"]
+    45 -> 88 [label="yes, missing" color="#0000FF"]
+
+    87 [ label="leaf=-0.0878195912" ]
+
+    88 [ label="leaf=-0.414301902" ]
+
+    46 [ label="L3M_DR_CR_AMT_RATIO<1.08311105" ]
+    46 -> 85 [label="no" color="#FF0000"]
+    46 -> 86 [label="yes, missing" color="#0000FF"]
+
+    85 [ label="leaf=-0.0136817154" ]
+
+    86 [ label="leaf=0.610294342" ]
+
+    24 [ label="L5M_DR_CR_AMT_RATIO<1.031515" ]
+    24 -> 43 [label="yes, missing" color="#0000FF"]
+    24 -> 44 [label="no" color="#FF0000"]
+
+    43 [ label="L5M_DR_CR_AMT_RATIO<0.947061002" ]
+    43 -> 63 [label="yes, missing" color="#0000FF"]
+    43 -> 64 [label="no" color="#FF0000"]
+
+    63 [ label="leaf=0.142357767" ]
+
+    64 [ label="leaf=-0.204022348" ]
+
+    44 [ label="L3M_DR_CR_AMT_RATIO<1.22155094" ]
+    44 -> 91 [label="no" color="#FF0000"]
+    44 -> 92 [label="yes, missing" color="#0000FF"]
+
+    91 [ label="leaf=0.332139641" ]
+
+    92 [ label="leaf=-0.283140481" ]
+
+    2 [ label="ATM_DR_TXN_AMT_7M<68.8799973" ]
+    2 -> 5 [label="no" color="#FF0000"]
+    2 -> 6 [label="yes, missing" color="#0000FF"]
+
+    5 [ label="L7M_DR_CR_AMT_RATIO<2.90000007e-05" ]
+    5 -> 9 [label="yes, missing" color="#0000FF"]
+    5 -> 10 [label="no" color="#FF0000"]
+
+    9 [ label="leaf=-0.451307565" ]
+
+    10 [ label="L6M_DR_CR_AMT_RATIO<1.64676094" ]
+    10 -> 17 [label="yes, missing" color="#0000FF"]
+    10 -> 18 [label="no" color="#FF0000"]
+
+    17 [ label="UPI_DR_CNT_11M<1" ]
+    17 -> 31 [label="yes, missing" color="#0000FF"]
+    17 -> 32 [label="no" color="#FF0000"]
+
+    31 [ label="L9M_DR_CR_AMT_RATIO<1.09063101" ]
+    31 -> 59 [label="yes, missing" color="#0000FF"]
+    31 -> 60 [label="no" color="#FF0000"]
+
+    59 [ label="leaf=0.198436379" ]
+
+    60 [ label="leaf=0.0315346904" ]
+
+    32 [ label="L6M_DR_CR_AMT_RATIO<0.634905994" ]
+    32 -> 111 [label="yes, missing" color="#0000FF"]
+    32 -> 112 [label="no" color="#FF0000"]
+
+    111 [ label="leaf=0.140786991" ]
+
+    112 [ label="leaf=-0.0072088521" ]
+
+    18 [ label="DEBIT_SUM_6M<32182.8008" ]
+    18 -> 55 [label="yes, missing" color="#0000FF"]
+    18 -> 56 [label="no" color="#FF0000"]
+
+    55 [ label="UPI_DR_CNT_11M<13" ]
+    55 -> 67 [label="no" color="#FF0000"]
+    55 -> 68 [label="yes, missing" color="#0000FF"]
+
+    67 [ label="leaf=0.332434535" ]
+
+    68 [ label="leaf=0.929671347" ]
+
+    56 [ label="LM_DR_CR_AMT_RATIO<1.77686" ]
+    56 -> 65 [label="yes, missing" color="#0000FF"]
+    56 -> 66 [label="no" color="#FF0000"]
+
+    65 [ label="leaf=0.212706834" ]
+
+    66 [ label="leaf=-0.130320832" ]
+
+    6 [ label="L7M_DR_CR_AMT_RATIO<0.111400001" ]
+    6 -> 13 [label="no" color="#FF0000"]
+    6 -> 14 [label="yes, missing" color="#0000FF"]
+
+    13 [ label="ATM_DR_TXN_AMT_7M<2847.19995" ]
+    13 -> 19 [label="yes, missing" color="#0000FF"]
+    13 -> 20 [label="no" color="#FF0000"]
+
+    19 [ label="L7M_DR_CR_AMT_RATIO<2.90000007e-05" ]
+    19 -> 51 [label="no" color="#FF0000"]
+    19 -> 52 [label="yes, missing" color="#0000FF"]
+
+    51 [ label="DEBIT_SUM_6M<2664" ]
+    51 -> 75 [label="yes, missing" color="#0000FF"]
+    51 -> 76 [label="no" color="#FF0000"]
+
+    75 [ label="leaf=-0.312609553" ]
+
+    76 [ label="leaf=0.00423275819" ]
+
+    52 [ label="L8M_DR_CR_AMT_RATIO<2.67087293" ]
+    52 -> 73 [label="yes, missing" color="#0000FF"]
+    52 -> 74 [label="no" color="#FF0000"]
+
+    73 [ label="leaf=0.266841829" ]
+
+    74 [ label="leaf=-0.165566817" ]
+
+    20 [ label="L7M_DR_CR_AMT_RATIO<2.90000007e-05" ]
+    20 -> 47 [label="yes, missing" color="#0000FF"]
+    20 -> 48 [label="no" color="#FF0000"]
+
+    47 [ label="L8M_DR_CR_AMT_RATIO<0.169890001" ]
+    47 -> 83 [label="no" color="#FF0000"]
+    47 -> 84 [label="yes, missing" color="#0000FF"]
+
+    83 [ label="leaf=-0.195181012" ]
+
+    84 [ label="leaf=0.0176432952" ]
+
+    48 [ label="DEBIT_SUM_6M<176209" ]
+    48 -> 81 [label="yes, missing" color="#0000FF"]
+    48 -> 82 [label="no" color="#FF0000"]
+
+    81 [ label="leaf=-0.316767961" ]
+
+    82 [ label="leaf=-0.0582148321" ]
+
+    14 [ label="DEBIT_SUM_6M<380" ]
+    14 -> 21 [label="yes, missing" color="#0000FF"]
+    14 -> 22 [label="no" color="#FF0000"]
+
+    21 [ label="ATM_DR_TXN_AMT_7M<20009.4395" ]
+    21 -> 33 [label="yes, missing" color="#0000FF"]
+    21 -> 34 [label="no" color="#FF0000"]
+
+    33 [ label="CREDIT_SUM_4M<10008.1299" ]
+    33 -> 107 [label="no" color="#FF0000"]
+    33 -> 108 [label="yes, missing" color="#0000FF"]
+
+    107 [ label="leaf=0.0205075406" ]
+
+    108 [ label="leaf=0.415511519" ]
+
+    34 [ label="DEBIT_CNT_3M<7" ]
+    34 -> 103 [label="yes, missing" color="#0000FF"]
+    34 -> 104 [label="no" color="#FF0000"]
+
+    103 [ label="leaf=0.0974754319" ]
+
+    104 [ label="leaf=-0.391403973" ]
+
+    22 [ label="L9M_DR_CR_AMT_RATIO<0.521956027" ]
+    22 -> 49 [label="yes, missing" color="#0000FF"]
+    22 -> 50 [label="no" color="#FF0000"]
+
+    49 [ label="ATM_DR_TXN_AMT_4M<20009.4395" ]
+    49 -> 79 [label="yes, missing" color="#0000FF"]
+    49 -> 80 [label="no" color="#FF0000"]
+
+    79 [ label="leaf=-0.0406964943" ]
+
+    80 [ label="leaf=0.0568939932" ]
+
+    50 [ label="L2M_DR_CR_AMT_RATIO<0.959999979" ]
+    50 -> 77 [label="yes, missing" color="#0000FF"]
+    50 -> 78 [label="no" color="#FF0000"]
+
+    77 [ label="leaf=0.0311034117" ]
+
+    78 [ label="leaf=0.000429444859" ]
+}

@@ -1,0 +1,17 @@
+user: ajinkya
+server: 10.129.26.36
+host: 10.1.1.101
+code: [ganak] # [opt,base]
+experiment_folder: /home/ajinkya/experiments/ganak_adult
+benchmark_dir: ./models/adult
+gap: 1
+precision: 100
+bit_distance: 1 
+num_cores: 1
+max_parallel_jobs: 100
+upload_code: true
+log_dir: "./experiment_results/logs"
+timeout: 1800 #seconds
+memory_limit_gb: 4 #new parameter
+random_seed: 42
+num_features_to_sample: 5  # Number of features to randomly sample per model (set to -1 for all features)
