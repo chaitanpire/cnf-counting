@@ -676,8 +676,17 @@ def search_anomaly_for_features(
             # Require: (sum(up_leaves) - sum(down_leaves) >= ugap - lgap + 1) OR
             #          (sum(down_leaves) - sum(up_leaves) >= ugap - lgap + 1)
             #
-            
-            # Encoding: Use two auxiliary counters sum1 and sum2, each
+            # To encode this in OPB format, we introduce auxiliary Boolean variables
+            # for EACH term (leaf) and use a selector variable approach:
+            # 
+            # Let sel be a Boolean variable (0 = first direction, 1 = second direction)
+            # For each leaf pair (up_i, down_i):
+            #   - If sel=0: contribute (coeff_up_i * up_i - coeff_down_i * down_i)
+            #   - If sel=1: contribute (coeff_down_i * down_i - coeff_up_i * up_i)
+            #
+            # However, this requires conditional coefficients which OPB doesn't support.
+            # 
+            # Alternative encoding: Use two auxiliary counters sum1 and sum2, each
             # counting their respective direction, then require (sum1 >= k) ∨ (sum2 >= k)
             # This can be encoded as: introduce bool b, then:
             #   sum1 + M*(1-b) >= k
@@ -712,6 +721,8 @@ def search_anomaly_for_features(
             all_coeffs = [abs(w) for w, _ in up_leaves] + [abs(w) for w, _ in down_leaves]
             big_M = sum(all_coeffs) + gap_threshold + 1
             
+            # aux_dir1: if True, enforce (up - down >= gap_threshold)
+            # aux_dir2: if True, enforce (down - up >= gap_threshold)
             aux_dir1 = z3.Bool("aux_dir1")
             aux_dir2 = z3.Bool("aux_dir2")
 
@@ -727,7 +738,6 @@ def search_anomaly_for_features(
 
             # At least one direction enforced
             prop += [z3.Or(aux_dir1, aux_dir2)]
-
         else:
             if truelabel != -1:
                 if otherlabel == -1:
@@ -855,13 +865,12 @@ def search_anomaly_for_features(
                         if isinstance(name, str) and name.startswith("x") and name[1:].lstrip("-").isdigit():
                             return name[1:]
                         return name
+
                     pf.write("c p show ")
                     for name in sorted(varnames, key=lambda s: (not isinstance(s, str) or not s.startswith('x'), s)):
                         #pf.write(norm(name) + "\n")
                         pf.write(norm(name) + " ")
-                    pf.write("0"+"\n")                      
-                    # for name in sorted(varnames, key=lambda s: (not isinstance(s, str) or not s.startswith('x'), s)):
-                    #     pf.write(norm(name) + "\n")
+                    pf.write("0"+"\n")
                 print(f"Wrote projected variables to: {proj_path}")
             except Exception as e:
                 print("Failed to write projected variables:", e)
